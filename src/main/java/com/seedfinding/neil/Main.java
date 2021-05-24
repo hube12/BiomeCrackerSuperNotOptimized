@@ -4,6 +4,7 @@ import kaptainwutax.mcutils.state.Dimension;
 import kaptainwutax.mcutils.version.MCVersion;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) throws InterruptedException {
@@ -44,5 +45,8 @@ public class Main {
 		for (Thread thread : threads) {
 			thread.join();
 		}
+		System.out.println("Done, press any key to exit");
+		Scanner scanner=new Scanner(System.in);
+		scanner.nextLine();
 	}
 }
