@@ -15,68 +15,84 @@ import java.util.function.Predicate;
 public class ChunkKernel implements Runnable {
 	public static Predicate<Biome> SANDY = b -> b == Biomes.BEACH;
 	public static Predicate<Biome> OTHER = b -> b != Biomes.BEACH;
-	public static HashMap<Pair<Integer, Integer>, Predicate<Biome>> MASK = new HashMap<Pair<Integer, Integer>, Predicate<Biome>>() {{
-		// test seed 1 on v1.12 (Chunk matched at (0,11) : /tp @p 0 ~ 176 )
-//		put(new Pair<>(4,0),OTHER);
-//		put(new Pair<>(5,0),SANDY);
-//		put(new Pair<>(6,0),SANDY);
-//		put(new Pair<>(7,0),SANDY);
-//		put(new Pair<>(8,0),SANDY);
-//
-//		put(new Pair<>(4,1),OTHER);
-//		put(new Pair<>(5,1),OTHER);
-//		put(new Pair<>(6,1),SANDY);
-//		put(new Pair<>(7,1),SANDY);
-//		put(new Pair<>(8,1),SANDY);
-
-
-		put(new Pair<>(3, 4), OTHER);
-		put(new Pair<>(3, 5), SANDY);
-		put(new Pair<>(3, 6), SANDY);
-		put(new Pair<>(3, 7), SANDY);
-		put(new Pair<>(3, 8), SANDY);
-
-		put(new Pair<>(4, 3), SANDY);
-		put(new Pair<>(4, 4), OTHER);
-		put(new Pair<>(4, 5), OTHER);
-		put(new Pair<>(4, 6), SANDY);
-		put(new Pair<>(4, 7), SANDY);
-		put(new Pair<>(4, 8), SANDY);
-
-		put(new Pair<>(5, 3), OTHER);
-		put(new Pair<>(5, 4), OTHER);
-		put(new Pair<>(5, 5), OTHER);
-		put(new Pair<>(5, 6), OTHER);
-		put(new Pair<>(5, 7), OTHER);
-		put(new Pair<>(5, 8), SANDY);
-
-		put(new Pair<>(6, 3), SANDY);
-		put(new Pair<>(6, 4), OTHER);
-		put(new Pair<>(6, 5), OTHER);
-		put(new Pair<>(6, 6), OTHER);
-		put(new Pair<>(6, 7), OTHER);
-		put(new Pair<>(6, 8), OTHER);
-
-		put(new Pair<>(7, 3), SANDY);
-		put(new Pair<>(7, 4), OTHER);
-		put(new Pair<>(7, 5), OTHER);
-		put(new Pair<>(7, 6), OTHER);
-		put(new Pair<>(7, 7), OTHER);
-		put(new Pair<>(7, 8), OTHER);
-
-		put(new Pair<>(8, 3), SANDY);
-		put(new Pair<>(8, 4), SANDY);
-		put(new Pair<>(8, 5), OTHER);
-		put(new Pair<>(8, 6), SANDY);
-		put(new Pair<>(8, 7), SANDY);
-		put(new Pair<>(8, 8), OTHER);
-
-		put(new Pair<>(9, 3), SANDY);
-		put(new Pair<>(9, 4), SANDY);
-		put(new Pair<>(9, 5), SANDY);
-		put(new Pair<>(9, 6), SANDY);
-		put(new Pair<>(9, 7), SANDY);
-		put(new Pair<>(9, 8), OTHER);
+	public static HashMap<Pair<Integer, Integer>, Predicate<Biome>> MASK1 = new HashMap<Pair<Integer, Integer>, Predicate<Biome>>() {
+		{
+			put(new Pair<>(7, 4), OTHER),
+					put(new Pair<>(8, 3), SANDY),
+					put(new Pair<>(8, 4), OTHER),
+					put(new Pair<>(9, 3), SANDY),
+					put(new Pair<>(9, 4), SANDY),
+					put(new Pair<>(9, 5), OTHER),
+					put(new Pair<>(10, 4), SANDY),
+					put(new Pair<>(10, 5), OTHER),
+					put(new Pair<>(11, 4), SANDY),
+					put(new Pair<>(11, 5), OTHER),
+					put(new Pair<>(11, 6), OTHER),
+					put(new Pair<>(12, 5), OTHER),
+					put(new Pair<>(13, 5), OTHER),
+		}
+	};
+	public static HashMap<Pair<Integer, Integer>, Predicate<Biome>> MASK2 = new HashMap<Pair<Integer, Integer>, Predicate<Biome>>() {
+		{
+			put(new Pair<>(8, 5), OTHER),
+					put(new Pair<>(8, 6), OTHER),
+					put(new Pair<>(8, 7), OTHER),
+					put(new Pair<>(8, 8), OTHER),
+					put(new Pair<>(8, 9), OTHER),
+					put(new Pair<>(8, 10), OTHER),
+					put(new Pair<>(8, 11), OTHER),
+					put(new Pair<>(8, 12), OTHER),
+					put(new Pair<>(9, 5), SANDY),
+					put(new Pair<>(9, 6), SANDY),
+					put(new Pair<>(9, 7), OTHER),
+					put(new Pair<>(9, 8), OTHER),
+					put(new Pair<>(9, 9), OTHER),
+					put(new Pair<>(9, 10), SANDY),
+					put(new Pair<>(9, 11), SANDY),
+					put(new Pair<>(9, 12), SANDY),
+					put(new Pair<>(9, 13), SANDY),
+					put(new Pair<>(9, 14), SANDY),
+					put(new Pair<>(9, 15), SANDY),
+					put(new Pair<>(10, 6), SANDY),
+					put(new Pair<>(10, 7), SANDY),
+					put(new Pair<>(10, 8), OTHER),
+					put(new Pair<>(10, 9), SANDY),
+					put(new Pair<>(10, 10), SANDY),
+					put(new Pair<>(10, 11), SANDY),
+					put(new Pair<>(10, 12), SANDY),
+					put(new Pair<>(10, 14), SANDY),
+					put(new Pair<>(10, 15), SANDY),
+					put(new Pair<>(11, 7), SANDY),
+					put(new Pair<>(11, 8), SANDY),
+					put(new Pair<>(11, 9), SANDY),
+					put(new Pair<>(11, 10), SANDY),
+					put(new Pair<>(11, 11), SANDY),
+					put(new Pair<>(11, 14), SANDY),
+					put(new Pair<>(11, 15), SANDY),
+					put(new Pair<>(12, 8), SANDY),
+					put(new Pair<>(12, 9), SANDY),
+					put(new Pair<>(12, 10), SANDY),
+					put(new Pair<>(12, 14), SANDY),
+					put(new Pair<>(12, 15), SANDY),
+					put(new Pair<>(13, 15), SANDY),
+		}
+	};
+	public static HashMap<Pair<Integer, Integer>, Predicate<Biome>> MASK3 = new HashMap<Pair<Integer, Integer>, Predicate<Biome>>() {{
+		put(new Pair<>(5, 4), OTHER),
+				put(new Pair<>(5, 5), OTHER),
+				put(new Pair<>(5, 6), OTHER),
+				put(new Pair<>(6, 5), SANDY),
+				put(new Pair<>(7, 5), SANDY),
+				put(new Pair<>(7, 6), SANDY),
+				put(new Pair<>(7, 7), OTHER),
+				put(new Pair<>(8, 6), SANDY),
+				put(new Pair<>(8, 7), OTHER),
+				put(new Pair<>(9, 6), SANDY),
+				put(new Pair<>(9, 7), SANDY),
+				put(new Pair<>(10, 6), SANDY),
+				put(new Pair<>(10, 7), OTHER),
+				put(new Pair<>(11, 6), SANDY),
+				put(new Pair<>(11, 7), OTHER),
 	}};
 
 
@@ -95,7 +111,13 @@ public class ChunkKernel implements Runnable {
 	}
 
 	public static void execute(BiomeSource biomeSource, int chunkX, int chunkZ) {
-		for (Map.Entry<Pair<Integer, Integer>, Predicate<Biome>> entry : MASK.entrySet()) {
+		executeSingle(biomeSource,chunkX,chunkZ,MASK1);
+		executeSingle(biomeSource,chunkX,chunkZ,MASK2);
+		executeSingle(biomeSource,chunkX,chunkZ,MASK3);
+	}
+
+	public static void executeSingle(BiomeSource biomeSource, int chunkX, int chunkZ, HashMap<Pair<Integer, Integer>, Predicate<Biome>> hashSet) {
+		for (Map.Entry<Pair<Integer, Integer>, Predicate<Biome>> entry : hashSet.entrySet()) {
 			Pair<Integer, Integer> offset = entry.getKey();
 			int posX = (chunkX << 4) + offset.getFirst();
 			int posZ = (chunkZ << 4) + offset.getSecond();
@@ -104,7 +126,7 @@ public class ChunkKernel implements Runnable {
 		}
 		File file = new File(chunkX + " " + chunkZ + ".found");
 		try {
-			if (!file.createNewFile()) throw new Exception("Not valid, gtfo") ;
+			if (!file.createNewFile()) throw new Exception("Not valid, gtfo");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
